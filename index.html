@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Chromebookの使い方共有アプリ</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    textarea, input, select { width: 100%; margin-bottom: 10px; }
+    .section { margin-bottom: 40px; }
+    canvas { border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Chromebookの使い方共有アプリ</h1>
+
+  <div class="section">
+    <h2>① 子どもが使い方を記入</h2>
+    <label>時間帯を選ぶ：</label>
+    <select id="timeType">
+      <option value="休み時間">休み時間</option>
+      <option value="授業中">授業中</option>
+      <option value="家庭での時間">家庭での時間</option>
+    </select>
+    <textarea id="childInput" rows="3" placeholder="例：友だちと写真を撮る、計算ドリルをやる"></textarea>
+    <button onclick="submitChild()">送信</button>
+  </div>
+
+  <div class="section">
+    <h2>② Wordクラウド表示</h2>
+    <canvas id="wordCanvas" width="500" height="300"></canvas>
+    <button onclick="generateWordCloud()">クラウドを更新</button>
+  </div>
+
+  <div class="section">
+    <h2>③ 教員からのメッセージ</h2>
+    <textarea id="teacherInput" rows="3" placeholder="例：友達との関わりを大切にしてほしいなど"></textarea>
+    <button onclick="submitTeacher()">送信</button>
+    <h3>これまでのメッセージ：</h3>
+    <ul id="teacherList"></ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.0/src/wordcloud2.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
